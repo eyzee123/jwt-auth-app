@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -6,7 +7,7 @@ const { Pool } = require('pg');
 
 const app = express();
 const PORT = 5000;
-const JWT_SECRET = 'your-secret-key-change-in-production';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // PostgreSQL connection
 // const pool = new Pool({
@@ -16,9 +17,8 @@ const JWT_SECRET = 'your-secret-key-change-in-production';
 //   password: 'postgres',
 //   port: 5432,
 // });
-
 const pool = new Pool({
-  connectionString: 'postgresql://postgres:TWk-g%ixTUJV2DB@db.tyqjwqyosoximvhahksc.supabase.co:5432/postgres',
+  connectionString: process.env.DB_CONNECTION_KEY,
 });
 
 // Test database connection

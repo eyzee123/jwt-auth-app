@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Auth() {
   const userModel = {id: '', name: '', email: ''}
@@ -19,6 +19,7 @@ export default function Auth() {
 
   // Load token from localStorage on mount
   useEffect(() => {
+    console.log("process.env.API_URL",process.env.NEXT_PUBLIC_API_URL);
     const savedToken = localStorage.getItem('token');
     if (savedToken) {
       setToken(savedToken);
