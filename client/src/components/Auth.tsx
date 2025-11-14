@@ -17,7 +17,6 @@ export default function Auth() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Load token from localStorage on mount
   useEffect(() => {
     console.log("process.env.API_URL",process.env.NEXT_PUBLIC_API_URL);
     const savedToken = localStorage.getItem('token');
