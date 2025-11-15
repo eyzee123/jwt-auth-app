@@ -19,6 +19,9 @@ const JWT_SECRET = process.env.JWT_SECRET;
 // });
 const pool = new Pool({
   connectionString: process.env.DB_CONNECTION_KEY,
+  ssl: {
+    rejectUnauthorized: false  // allow self-signed cert
+  }
 });
 
 // Test database connection
